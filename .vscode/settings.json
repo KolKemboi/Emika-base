@@ -1,0 +1,14 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/kol/Documents/Robotics/ws_3/build/franka_emika_description",
+        "/home/kol/Documents/Robotics/ws_3/install/franka_emika_description/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/kol/Documents/Robotics/ws_3/build/franka_emika_description",
+        "/home/kol/Documents/Robotics/ws_3/install/franka_emika_description/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

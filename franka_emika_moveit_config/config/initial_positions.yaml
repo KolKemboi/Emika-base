@@ -1,0 +1,6 @@
+# Default initial positions for franka_emika's ros2_control fake system
+
+initial_positions:
+  Revolute 1: 0
+  Revolute 2: 0
+  Revolute 3: 0

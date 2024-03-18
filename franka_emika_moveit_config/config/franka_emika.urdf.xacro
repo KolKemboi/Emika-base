@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="franka_emika">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import franka_emika urdf file -->
+    <xacro:include filename="$(find franka_emika_description)/urdf/franka_emika.xacro" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="franka_emika.ros2_control.xacro" />
+
+
+    <xacro:franka_emika_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

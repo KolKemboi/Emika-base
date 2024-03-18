@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<robot name="franka_emika" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find franka_emika_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find franka_emika_description)/urdf/franka_emika.trans" />
+<xacro:include filename="$(find franka_emika_description)/urdf/franka_emika.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-4.6320184800976234e-17 2.3160092400488117e-17 0.09999999999999998" rpy="0 0 0"/>
+    <mass value="197.292018645439"/>
+    <inertia ixx="2.63056" iyy="2.63056" izz="3.94584" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find franka_emika_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find franka_emika_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component1_1">
+  <inertial>
+    <origin xyz="0.0 0.0 0.3000000000000001" rpy="0 0 0"/>
+    <mass value="36.99225349601982"/>
+    <inertia ixx="1.132888" iyy="1.132888" izz="0.04624" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.2" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find franka_emika_description)/meshes/Component1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.2" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find franka_emika_description)/meshes/Component1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component2_1">
+  <inertial>
+    <origin xyz="0.09999999999999996 0.0 0.19999999999999984" rpy="0 0 0"/>
+    <mass value="36.99225349601982"/>
+    <inertia ixx="1.132888" iyy="1.132888" izz="0.04624" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.8" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find franka_emika_description)/meshes/Component2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.8" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find franka_emika_description)/meshes/Component2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component3_1">
+  <inertial>
+    <origin xyz="-0.1 0.0 0.20000000000000018" rpy="0 0 0"/>
+    <mass value="36.99225349601982"/>
+    <inertia ixx="1.132888" iyy="1.132888" izz="0.04624" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1 -0.0 -1.3" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find franka_emika_description)/meshes/Component3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1 -0.0 -1.3" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find franka_emika_description)/meshes/Component3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 1" type="continuous">
+  <origin xyz="0.0 0.0 0.2" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Component1_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 2" type="continuous">
+  <origin xyz="0.0 0.0 0.6" rpy="0 0 0"/>
+  <parent link="Component1_1"/>
+  <child link="Component2_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 3" type="continuous">
+  <origin xyz="0.1 0.0 0.5" rpy="0 0 0"/>
+  <parent link="Component2_1"/>
+  <child link="Component3_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+</robot>
